@@ -13,9 +13,11 @@ const port = process.env.PORT || 5000;
 app.use(
   cors({
       origin: [
-        // 'http://localhost:5173', 
+        // 'http://localhost:5173',
+        // 'http://localhost:5174',
         'https://services-by-doctors.web.app',
-      'https://services-by-doctors.firebaseapp.com'],
+      'https://services-by-doctors.firebaseapp.com'
+      ],
       credentials: true,
   }),
 )
@@ -38,7 +40,7 @@ const client = new MongoClient(uri, {
 
 // middleware
 const logger = async(req, res, next) => {
-  // console.log('colled:', req.host, req.originalUrl);
+  console.log('colled:', req.host, req.originalUrl);
   console.log('log: info', req.method, req.url);
   next();
 }
